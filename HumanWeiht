@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WeightAndAge
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Вес человека [кг]
+            double userWeight = 94;
+
+            // Ускорение свободного падания небесных тел солнечной системы [м/с2]
+            double gEarth = 9.81;
+            double gMoon = 1.62;
+            double gVenus = 8.88;
+            double gJupiter = 23.95;
+            double gUranus = 8.86;
+            double gSun = 273.1;
+            double gMercury = 3.74;
+            double gMars = 3.86;
+            double gSaturn = 10.44;
+            double gNeptune = 11.09;
+
+            // Сила тяжести на небесных телах действующая на человека
+            double FMoon = Fvalue(userWeight,gMoon);
+            double FVenus = Fvalue(userWeight, gVenus);
+            double FJupiter = Fvalue(userWeight, gJupiter);
+            double FUranus = Fvalue(userWeight, gUranus);
+            double FSun = Fvalue(userWeight, gSun);
+            double FMercury = Fvalue(userWeight, gMercury);
+            double FMars = Fvalue(userWeight, gMars);
+            double FSaturn = Fvalue(userWeight, gSaturn);
+            double FNeptune = Fvalue(userWeight, gNeptune);
+
+            // Вес пользователя на небесных телах [кг]
+            double userMoonWeight = Mvalue(FMoon, gEarth);
+            double userVenusWeight = Mvalue(FVenus, gEarth);
+            double userJupiterWeight = Mvalue(FJupiter, gEarth);
+            double userUranusWeight = Mvalue(FUranus, gEarth);
+            double userSunWeight = Mvalue(FSun, gEarth);
+            double userMercuryWeight = Mvalue(FMercury, gEarth);
+            double userMarsWeight = Mvalue(FMars, gEarth);
+            double userSaturnWeight = Mvalue(FSaturn, gEarth);
+            double userNeptuneWeight = Mvalue(FNeptune, gEarth);
+
+            // Вывод на консоль
+            Console.WriteLine("Вес человека на Луне = " + Math.Round(userMoonWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Венере = " + Math.Round(userVenusWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Юпитере = " + Math.Round(userJupiterWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Уране = " + Math.Round(userUranusWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Солнце = " + Math.Round(userSunWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Меркурие = " + Math.Round(userMercuryWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Марсе = " + Math.Round(userMarsWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Сатурне = " + Math.Round(userSaturnWeight, 2) + " кг");
+            Console.WriteLine("Вес человека на Нептуне = " + Math.Round(userNeptuneWeight, 2) + " кг");
+            Console.ReadKey();
+        }
+        // Сила тяжести на небесных телах действующая на человека
+        static double Fvalue (double user,double planet)
+        {
+            double resultF = user * planet;
+            return resultF;
+        }
+        // Вес пользователя на небесных телах
+        static double Mvalue(double FPlanet, double gEarth)
+        {
+            double resultM = FPlanet / gEarth;
+            return resultM;
+        }
+    }
+}
